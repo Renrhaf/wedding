@@ -180,3 +180,7 @@ body {
 
 .btn-outline-primary:hover {
   color: #fff; }
+
+.hidden {
+  display: none;
+}
