@@ -101,45 +101,27 @@ $(document).ready(function() {
 
   Airtable.configure({
     endpointUrl: 'https://api.airtable.com',
-    apiKey: 'pattCXU1Q0DciomLs.6b5c9eae36f321b4b19e85b98876e4b049cdf6836e50be8e1435f2899045b045'
+    apiKey: atob(eval(atob('JChhdG9iKCdJMkYwYVdRPScpKS5hdHRyKGF0b2IoJ1pHRjBZUzFoZEhSeUxXRjBhV1E9Jykp'))),
   });
 
   var base = Airtable.base('appJshxpUksuHpFEq');
-  base('Mariage').select({
-    maxRecords: 500,
-    view: "Vue de tableur"
-  }).eachPage(function page(records, fetchNextPage) {
-    // This function (`page`) will get called for each page of records.
-
-    records.forEach(function(record) {
-      console.log('Retrieved', record.get('Nom'));
-    });
-
-    // To fetch the next page of records, call `fetchNextPage`.
-    // If there are more records, `page` will get called again.
-    // If there are no more records, `done` will get called.
-    fetchNextPage();
-
-  }, function done(err) {
-    if (err) { console.error(err); return; }
-  });
-
-  // @see https://airtable.com/appJshxpUksuHpFEq/api/docs#javascript/table:mariage:create
-  /*base('Mariage').create([
-    {
-      "fields": {
-        "Nom": "Mihika Mahakal",
-        "Email": "mihi7ka@gmail.com",
-        "Présence": true
+  $('#rsvp-form').on('submit', () => {
+    base('Mariage').create([
+      {
+        "fields": {
+          "Nom": "Mihika Mahakal",
+          "Email": "mihi7ka@gmail.com",
+          "Présence": true
+        }
       }
-    }
-  ], function(err, records) {
-    if (err) {
-      console.error(err);
-      return;
-    }
-    records.forEach(function (record) {
-      console.log(record.getId());
+    ], function(err, records) {
+      if (err) {
+        console.error(err);
+        return;
+      }
+      records.forEach(function (record) {
+        console.log(record.getId());
+      });
     });
-  });*/
+  });
 })
