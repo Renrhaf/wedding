@@ -179,3 +179,11 @@ body {
 .hidden {
   display: none;
 }
+
+#rsvp-form-message {
+  background: white;
+  padding: 1rem 2rem;
+  color: black;
+  border-radius: 4px;
+  margin-bottom: 2rem;
+}

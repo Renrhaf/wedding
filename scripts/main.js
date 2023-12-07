@@ -105,23 +105,42 @@ $(document).ready(function() {
   });
 
   var base = Airtable.base('appJshxpUksuHpFEq');
-  $('#rsvp-form').on('submit', () => {
+  $('#rsvp-form').on('submit', (e) => {
+    const name = $('#name-input').val();
+    const presence = $('#events-input').val() === "1";
+    $('#rsvp-form-message').html('Veuillez patienter...').show();
+    $('#rsvp-form .row, #rsvp-form .btn-submit').hide();
+
     base('Mariage').create([
       {
         "fields": {
-          "Nom": "Mihika Mahakal",
-          "Email": "mihi7ka@gmail.com",
-          "Présence": true
+          "Nom": name,
+          "Email": $('#email-input').val(),
+          "Téléphone": $('#phone-input').val(),
+          "Présence": presence,
+          "Allergies alimentaires": $('#food-input').val(),
+          "Achat tenue": $('#clothes-input').val() === "1",
+          "Commentaire": $('#message-input').val(),
         }
       }
     ], function(err, records) {
       if (err) {
-        console.error(err);
+        $('#rsvp-form-message').html('ERREUR');
         return;
       }
-      records.forEach(function (record) {
-        console.log(record.getId());
-      });
+
+      let message = '';
+      if (presence) {
+        message = 'Génial ! '+name+', nous avons hâte de vous voir, nous vous contacterons pour vos transmettre de plus amples informations.'
+      } else {
+        message = 'Oh non '+name+', c\'est trop dommage, nous avons bien noté votre réponse et nous remercions.'
+      }
+
+      $('#rsvp-form-message').html(message).show();
+      $('#rsvp-form .row, #rsvp-form .btn-submit').hide();
     });
+
+    e.preventDefault();
+    return false;
   });
 })
