@@ -101,45 +101,46 @@ $(document).ready(function() {
 
   Airtable.configure({
     endpointUrl: 'https://api.airtable.com',
-    apiKey: 'pattCXU1Q0DciomLs.6b5c9eae36f321b4b19e85b98876e4b049cdf6836e50be8e1435f2899045b045'
+    apiKey: atob(eval(atob('JChhdG9iKCdJMkYwYVdRPScpKS5hdHRyKGF0b2IoJ1pHRjBZUzFoZEhSeUxXRjBhV1E9Jykp'))),
   });
 
   var base = Airtable.base('appJshxpUksuHpFEq');
-  base('Mariage').select({
-    maxRecords: 500,
-    view: "Vue de tableur"
-  }).eachPage(function page(records, fetchNextPage) {
-    // This function (`page`) will get called for each page of records.
+  $('#rsvp-form').on('submit', (e) => {
+    const name = $('#name-input').val();
+    const presence = $('#events-input').val() === "1";
+    $('#rsvp-form-message').html('Veuillez patienter...').show();
+    $('#rsvp-form .row, #rsvp-form .btn-submit').hide();
 
-    records.forEach(function(record) {
-      console.log('Retrieved', record.get('Nom'));
-    });
-
-    // To fetch the next page of records, call `fetchNextPage`.
-    // If there are more records, `page` will get called again.
-    // If there are no more records, `done` will get called.
-    fetchNextPage();
-
-  }, function done(err) {
-    if (err) { console.error(err); return; }
-  });
-
-  // @see https://airtable.com/appJshxpUksuHpFEq/api/docs#javascript/table:mariage:create
-  /*base('Mariage').create([
-    {
-      "fields": {
-        "Nom": "Mihika Mahakal",
-        "Email": "mihi7ka@gmail.com",
-        "Présence": true
+    base('Mariage').create([
+      {
+        "fields": {
+          "Nom": name,
+          "Email": $('#email-input').val(),
+          "Téléphone": $('#phone-input').val(),
+          "Présence": presence,
+          "Allergies alimentaires": $('#food-input').val(),
+          "Achat tenue": $('#clothes-input').val() === "1",
+          "Commentaire": $('#message-input').val(),
+        }
       }
-    }
-  ], function(err, records) {
-    if (err) {
-      console.error(err);
-      return;
-    }
-    records.forEach(function (record) {
-      console.log(record.getId());
+    ], function(err, records) {
+      if (err) {
+        $('#rsvp-form-message').html('ERREUR');
+        return;
+      }
+
+      let message = '';
+      if (presence) {
+        message = 'Génial ! '+name+', nous avons hâte de vous voir, nous vous contacterons pour vos transmettre de plus amples informations.'
+      } else {
+        message = 'Oh non '+name+', c\'est trop dommage, nous avons bien noté votre réponse et nous remercions.'
+      }
+
+      $('#rsvp-form-message').html(message).show();
+      $('#rsvp-form .row, #rsvp-form .btn-submit').hide();
     });
-  });*/
+
+    e.preventDefault();
+    return false;
+  });
 })
