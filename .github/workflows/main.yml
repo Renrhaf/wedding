@@ -1,0 +1,21 @@
+name: Deploy
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Login to server using SSH
+        uses: appleboy/ssh-action@v0.0.8
+        with:
+          host: ${{ secrets.PRODUCTION_HOST }}
+          username: ${{ secrets.PRODUCTION_USER }}
+          password: ${{ secrets.PRODUCTION_PASS }}
+          port: ${{ secrets.PRODUCTION_PORT }}
+          script: |
+            cd /var/www/wedding
+            ls -al
+            git pull
