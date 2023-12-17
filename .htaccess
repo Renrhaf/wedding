@@ -1,10 +1,15 @@
 DirectoryIndex fr/index.html
 
 ExpiresActive on
+AddType image/webp .webp
 ExpiresByType image/png "access plus 11 month"
 ExpiresByType image/gif "access plus 11 month"
 ExpiresByType image/jpeg "access plus 11 month"
 ExpiresByType image/jpg "access plus 11 month"
 ExpiresByType image/webp "access plus 11 month"
 ExpiresByType text/css "access plus 1 week"
-ExpiresByType text/javascript "access plus 1 week"
+ExpiresByType text/javascript "access 1 week"
+ExpiresByType text/x-javascript "access 1 week"
+ExpiresByType application/javascript "access 1 week"
+ExpiresByType application/x-javascript "access 1 week"
+ExpiresByType application/json "access 1 week"

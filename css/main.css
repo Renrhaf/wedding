@@ -1,6 +1,10 @@
 body {
   font-family: "Dosis", sans-serif; }
 
+.navbar-light .navbar-nav .nav-link {
+  color: rgba(0, 0, 0, 1);
+}
+
 /* Home Page Style */
 .ww-home-page {
   background: url("../images/mihika-quentin-3.webp") no-repeat center center;
