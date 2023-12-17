@@ -143,4 +143,31 @@ $(document).ready(function() {
     e.preventDefault();
     return false;
   });
+
+  function getCookie(name) {
+    var value = "; " + document.cookie;
+    var parts = value.split("; " + name + "=");
+    if (parts.length === 2) return parts.pop().split(";").shift();
+  }
+
+  function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+  }
+
+  function autoplaySound(){
+    const audio = document.getElementById('krishna-flute');
+    const status = getCookie("autoplay_sound_done");
+
+    audio.volume = 0.2;
+
+    if (status == null) {
+      audio.play();
+      setCookie("autoplay_sound_done", true, 365);
+    }
+  }
+
+  autoplaySound();
 })
