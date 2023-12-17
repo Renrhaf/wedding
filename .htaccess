@@ -1,15 +1,25 @@
 DirectoryIndex fr/index.html
 
 ExpiresActive on
+
 AddType image/webp .webp
+AddType application/font-sfnt            otf ttf
+AddType application/font-woff            woff
+AddType application/font-woff2           woff2
+AddType application/vnd.ms-fontobject    eot
+
 ExpiresByType image/png "access plus 11 month"
 ExpiresByType image/gif "access plus 11 month"
 ExpiresByType image/jpeg "access plus 11 month"
 ExpiresByType image/jpg "access plus 11 month"
 ExpiresByType image/webp "access plus 11 month"
-ExpiresByType text/css "access plus 1 week"
-ExpiresByType text/javascript "access 1 week"
-ExpiresByType text/x-javascript "access 1 week"
-ExpiresByType application/javascript "access 1 week"
-ExpiresByType application/x-javascript "access 1 week"
-ExpiresByType application/json "access 1 week"
+ExpiresByType text/css "access plus 1 month"
+ExpiresByType text/javascript "access 1 month"
+ExpiresByType text/x-javascript "access 1 month"
+ExpiresByType application/javascript "access 1 month"
+ExpiresByType application/x-javascript "access 1 month"
+ExpiresByType application/json "access 1 month"
+ExpiresByType application/font-woff "access plus 1 month"
+ExpiresByType application/font-woff2 "access plus 1 month"
+ExpiresByType application/font-sfnt "access plus 1 month"
+ExpiresByType application/vnd.ms-fontobject "access plus 1 month"
