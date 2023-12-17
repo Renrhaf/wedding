@@ -178,7 +178,12 @@ body {
   font-family: "Great Vibes", cursive; }
 
 .ww-section {
-  padding: 100px 0; }
+  padding: 50px 0; }
+
+@media (min-width: 768px) {
+  .ww-section {
+    padding: 100px 0; }
+}
 
 .btn-primary {
   color: #fff; }
@@ -198,13 +203,31 @@ body {
   margin-bottom: 2rem;
 }
 
+#faq {
+  padding-top: 200px;
+  padding-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  padding-top: unset;
+}
+
+#faq > .container {
+  background: white;
+  padding: 2rem 0 0 0;
+}
+
+@media (min-width: 768px) {
+  #faq > .container > .faq {
+    max-width: 1000px;
+  }
+}
+
 .faq-heading {
   font-weight: 400;
   font-size: 19px;
-  -webkit-transition: text-indent 0.2s;
-  text-indent: 20px;
   color: #333;
-  margin: 1rem 0;
+  margin: 1rem;
 }
 
 .faq-text {
@@ -213,11 +236,17 @@ body {
   width:95%;
   padding-left:20px;
   margin-bottom:30px;
-  margin-top:30px;
+  margin-top:40px;
+}
+
+@media (min-width: 768px) {
+  .faq-text {
+    margin-top:30px;
+  }
 }
 
 .faq {
-  width: 1000px;
+  width: 100%;
   margin: 0 auto;
   position: relative;
   border: 1px solid #E1E1E1;
@@ -264,20 +293,33 @@ body {
   -webkit-transform: rotate(135deg);
   transform: rotate(135deg);
 }
+
 .faq input[type="checkbox"]:checked + label {
   display: block;
   background: rgba(255,255,255,255) !important;
   color: #4f7351;
-  height: 400px;
+  height: 720px;
   transition: height 0.8s;
   -webkit-transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@media (min-width: 768px) {
+  .faq input[type="checkbox"]:checked + label {
+    height: 400px;
+  }
 }
 
 .faq input[type='checkbox']:not(:checked) + label {
   display: block;
   transition: height 0.8s;
-  height: 60px;
+  height: 90px;
   -webkit-transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@media (min-width: 768px) {
+  .faq input[type='checkbox']:not(:checked) + label {
+    height: 60px;
+  }
 }
 
 ::-webkit-scrollbar {
