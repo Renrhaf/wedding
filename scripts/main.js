@@ -95,6 +95,17 @@ $(document).on("click", '[data-toggle="lightbox"]', function(event) {
   $(this).ekkoLightbox();
 });
 
+// Form tweaking.
+$(document).ready(function() {
+  $('#clothes-input').change(function() {
+    if ($(this).val() === '1') {
+      $('#clothes-details-row').show();
+    } else {
+      $('#clothes-details-row').hide();
+    }
+  });
+});
+
 // Airtable connexion.
 $(document).ready(function() {
   var Airtable = require('airtable');
@@ -121,6 +132,7 @@ $(document).ready(function() {
           "Allergies alimentaires": $('#food-input').val(),
           "Achat tenue": $('#clothes-input').val() === "1",
           "Commentaire": $('#message-input').val(),
+          "Détails tenue": $('#clothes-details-input').val(),
         }
       }
     ], function(err, records) {
