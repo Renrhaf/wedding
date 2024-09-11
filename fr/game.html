@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Trouvez votre cible - Mihika & Quentin</title>
+    <meta name="description" content="Lors du mariage, vous êtes invités à trouver votre cible, pour vous encourager à rencontrer les autres invités.">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500&amp;display=swap"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500&amp;display=swap" media="print" onload="this.media='all'"/>
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500&amp;display=swap"/>
+    </noscript>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;display=swap"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;display=swap" media="print" onload="this.media='all'"/>
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;display=swap"/>
+    </noscript>
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
+    <link href="../css/bootstrap.min.css?ver=1.1.0" rel="stylesheet">
+    <link href="../css/font-awesome/css/all.min.css?ver=1.1.0" rel="stylesheet">
+    <link href="../css/aos.css?ver=1.1.0" rel="stylesheet">
+    <link href="../css/ekko-lightbox.css?ver=1.1.0" rel="stylesheet">
+    <link href="../css/main.css?ver=1.1.0" rel="stylesheet">
+    <noscript>
+      <style type="text/css">
+        [data-aos] {
+            opacity: 1 !important;
+            transform: translate(0) scale(1) !important;
+        }
+      </style>
+    </noscript>
+  </head>
+  <body id="top">
+    <div class="page-content">
+      <div class="div">
+        <div class="ww-nav-bar sticky-top bg-light">
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+              <h1 class="h2"><a class="pl-4 navbar-brand" href="#"><strong>Scanner de cible activé</strong></a></h1>
+            </div>
+          </nav>
+        </div>
+        <div class="ww-game">
+          <div class="container">
+            <div class="ww-game-inner">
+              <div class="col text-center">
+                <h2 class="h1 ww-title pb-3">Avez-vous trouvé votre cible ?</h2>
+              </div>
+              <p class="text-center ww-game-submit-hide pb-3">
+                Vous pensez avoir trouvé votre cible et avez scanné son QR code.<br/>
+                Vérifiez si vous avez vu juste dès maintenant en entrant votre code secret ci-dessous.
+              </p>
+
+              <p id="game-form-message" style="display: none;"></p>
+              <p id="game-form-result" style="display: none;"></p>
+
+              <div class="ww-game-form">
+                <form id="game-form" method="POST">
+                  <div class="row ww-game-submit-hide">
+                    <div class="col md-12 pb-3">
+                      <label for="target-input">Votre cible<sup class="text-danger">*</sup></label>
+                      <input class="form-control" id="target-input" type="text" name="target" disabled="disabled" />
+                    </div>
+                  </div>
+                  <div class="row ww-game-submit-hide">
+                    <div class="col md-12 pb-3">
+                      <div class="form-group">
+                        <label for="secret-code-input">Votre code secret<sup class="text-danger">*</sup></label>
+                        <input class="form-control" id="secret-code-input" type="text" name="identifier" required="required" maxlength="4" pattern="[0-9]{4}" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row ww-game-submit-hide">
+                    <div class="col text-center pb-3">
+                      <button id="game-form-submit" class="btn btn-primary btn-submit" type="submit">Vérifiez maintenant</button>
+                    </div>
+                  </div>
+                  <div class="row ww-game-form-reset" style="display: none;">
+                    <div class="col text-center pb-3">
+                      <button id="game-form-reset" class="btn btn-primary" type="button">Retour</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ww-footer bg-light">
+          <div class="container text-center py-4">
+            <p class="my-0">Mihika & Quentin &copy; 2024 - Tous droits réservés.</p>
+            <p class="mb-0">Créé avec <span class="icon has-text-danger">
+      <svg style="width: 12px; position: relative; top: -1px; color: #ff3860;" class="fa-heart fa-w-16" aria-hidden="true" data-prefix="fas" data-icon="heart" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+        <path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path>
+      </svg>
+    </span> par <a target="_blank" class="credit" href="https://www.saas-production.com">SaaS Production</a> // Design par <a target="_blank" class="credit" href="https://templateflip.com">TemplateFlip</a></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div id="atid" style="display: none;" data-attr-atid="cGF0dENYVTFRMERjaW9tTHMuNmI1YzllYWUzNmYzMjFiNGIxOWU4NWI5ODg3NmU0YjA0OWNkZjY4MzZlNTBiZThlMTQzNWYyODk5MDQ1YjA0NQ=="></div>
+    <footer></footer>
+    <script src="../scripts/jquery.min.js?ver=1.1.0"></script>
+    <script src="../scripts/bootstrap.bundle.min.js?ver=1.1.0"></script>
+    <script src="../scripts/aos.js?ver=1.1.0"></script>
+    <script src="../scripts/ekko-lightbox.min.js?ver=1.1.0"></script>
+    <script src="../scripts/airtable.browser.js?ver=1.1.0"></script>
+    <script src="../scripts/game.js?ver=1.1.0"></script>
+  </body>
+</html>

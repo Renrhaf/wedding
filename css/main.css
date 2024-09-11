@@ -365,3 +365,48 @@ body {
   50% {rotate: -1deg;}
   100% {rotate: 1deg;}
 }
+
+
+/* Game */
+.ww-game {
+  min-height: calc(100vh - 65px - 96px);
+  background-image: url("../images/game/background.webp");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-size: cover;
+  display: flex;
+}
+
+.ww-game > .container {
+  display: flex;
+  justify-content: center;
+  flex: 1 1 auto;
+}
+
+.ww-game .ww-game-form {
+  justify-content: center;
+}
+
+.ww-game .ww-game-inner {
+  background: white;
+  border-radius: 15px;
+  margin: auto;
+  padding: 2rem 5rem;
+}
+
+.ww-game .ww-game-form {
+  max-width: 250px;
+  margin: auto;
+}
+
+.ww-game #game-form-submit,
+.ww-game #game-form-reset {
+  width: 100%;
+}
+
+.ww-game #game-form-result {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
