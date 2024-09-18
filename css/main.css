@@ -376,6 +376,7 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
   background-size: cover;
   display: flex;
+  padding: 3rem 1rem;
 }
 
 .ww-game > .container {
@@ -392,7 +393,23 @@ body {
   background: white;
   border-radius: 15px;
   margin: auto;
-  padding: 2rem 5rem;
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .ww-game .ww-game-inner {
+    padding: 2rem 5rem;
+  }
+}
+
+.ww-game .ww-game-inner .ww-title {
+  font-size: 1.75rem;
+}
+
+@media (min-width: 768px) {
+  .ww-game .ww-game-inner .ww-title {
+    font-size: 2.5rem;
+  }
 }
 
 .ww-game .ww-game-form {
@@ -405,6 +422,7 @@ body {
   width: 100%;
 }
 
+.ww-game #game-form-message,
 .ww-game #game-form-result {
   font-size: 1.2rem;
   text-align: center;

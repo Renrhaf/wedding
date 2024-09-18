@@ -111,8 +111,18 @@ $(document).ready(function() {
                     incrementPlayerTryCountSuccess(player)
                         .then((record)=> {
                           player = record;
+                          const tentatives = record.get('Tentatives');
 
-                          $('#game-form-result').html('👏 Bravo '+player.get('Name')+', vous avez trouvé votre cible qui était bien '+playerTarget.get('Name')+' !').show();
+                          if (tentatives === 1) {
+                            $('#game-form-result').html('👏 Bravo '+player.get('Name')+', vous avez trouvé votre cible du premier coup, c\'était bien '+playerTarget.get('Name')+' !').show();
+                          } else if (tentatives <= 3) {
+                            $('#game-form-result').html('💪 Bien joué '+player.get('Name')+', vous avez trouvé votre cible après '+tentatives+' tentatives, c\'était bien '+playerTarget.get('Name')+' ! ').show();
+                          } else if (tentatives <= 6) {
+                            $('#game-form-result').html('👍 Pas mal '+player.get('Name')+', vous avez enfin trouvé votre cible après '+tentatives+' tentatives, c\'était bien '+playerTarget.get('Name')+' ! ').show();
+                          } else {
+                            $('#game-form-result').html('👀 C\'était laborieux '+player.get('Name')+', mais vous avez enfin trouvé votre cible après '+tentatives+' tentatives, c\'était bien '+playerTarget.get('Name')+' ! ').show();
+                          }
+
                           $('#game-form-message').html('').hide();
                           $('.ww-game-form-reset').show();
                         })
@@ -130,8 +140,14 @@ $(document).ready(function() {
                     incrementPlayerTryCount(player)
                         .then((record)=> {
                           player = record;
+                          const tentatives = record.get('Tentatives');
 
-                          $('#game-form-result').html('🤔 Désolé '+player.get('Name')+', vous vous êtes trompé de cible<br/>Continuez à chercher...').show();
+                          if (tentatives > 1) {
+                              $('#game-form-result').html('😟 Désolé '+player.get('Name')+', vous vous êtes trompé(e) de cible pour la '+tentatives+' fois !<br/>Ne baissez pas les bras !').show();
+                          } else {
+                              $('#game-form-result').html('🤔 Désolé '+player.get('Name')+', vous vous êtes trompé(e) de cible<br/>Continuez à chercher...').show();
+                          }
+
                           $('#game-form-message').html('').hide();
                           $('.ww-game-form-reset').show();
                         })
