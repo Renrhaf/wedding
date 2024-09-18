@@ -19,11 +19,20 @@ $(document).ready(function() {
    * Initialize the game.
    */
   function initializeGame() {
+    // Display loading.
+    $('#game-form-message').html('Veuillez patienter...').show();
+    $('#game-form-result').hide();
+    $('.ww-game-submit-hide').hide();
+    $('.ww-game-form-reset').hide();
+
     // Make sure the QR code was scanned properly.
     const urlParams = new URLSearchParams(window.location.search);
     let targetIdentifier = urlParams.get('identifier');
     if (targetIdentifier === null || targetIdentifier === undefined) {
-      return null;
+        $('#game-form-result').html('🐛 Désolé, il y a une erreur dans les données, contactez le développeur.').show();
+        $('#game-form-message').html('').hide();
+        $('.ww-game-submit-hide').hide();
+        console.log("ERROR: ", err);
     }
 
     // Make sure the target exists
@@ -31,9 +40,12 @@ $(document).ready(function() {
     getPlayerByIdentifier(targetIdentifier)
         .then((record)=> {
           $('#target-input').val(record.get('Name')).show();
+          $('#game-form-message').html('').hide();
+          $('.ww-game-submit-hide').show();
         })
         .catch((err)=> {
           $('#game-form-result').html('🐛 Désolé, il y a une erreur dans les données, contactez le développeur.').show();
+          $('#game-form-message').html('').hide();
           $('.ww-game-submit-hide').hide();
           console.log("ERROR: ", err);
         });
